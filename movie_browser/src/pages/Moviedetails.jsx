@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useParams } from "react-router-dom";
 
 function Moviedetails() {
@@ -19,11 +21,18 @@ function Moviedetails() {
   console.log(moviesdetails);
 
   useEffect(() => {
-    Moviedetails();
+    setTimeout(function () {
+     
+      Moviedetails();
+    
+    },1000);
+   
   }, []);
+  console.log(Object.keys(moviesdetails).length)
   return (
     <div className="bg-gray-100 ">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {Object.keys(moviesdetails).length!==0 ?(
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
         <h2 className="text-2xl font-bold text-gray-900">Movie Details</h2>
 
@@ -56,6 +65,40 @@ function Moviedetails() {
         </div>
       </div>
     </div>
+    ):       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+      <h2 className="text-2xl font-bold text-gray-900">Movie Details</h2>
+
+      <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 ">
+       
+          <div  className="group relative  ">
+            <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+              <Skeleton 
+               width={400} height={300} 
+                className="h-96 w-full object-cover object-center"
+              />
+            </div>
+           
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+            <p className="text-base font-semibold text-gray-900"><Skeleton/></p>
+          </div>
+    
+      </div>
+    </div>
+  </div>}
+
+  
   </div>
   );
 }
