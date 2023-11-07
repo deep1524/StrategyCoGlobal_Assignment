@@ -8,7 +8,7 @@ This is the StrategyCoGlobal Company Assignment. where I used Omdb API for backe
 
 ## Demo
 
-https://celadon-starburst-cdf9bb.netlify.app/
+ https://idyllic-marzipan-d1f737.netlify.app
 
 ##  Tech-stack used
   
